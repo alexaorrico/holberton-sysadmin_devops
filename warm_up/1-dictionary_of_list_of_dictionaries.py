@@ -28,8 +28,12 @@ if __name__ == '__main__':
         title = task.get('title', None)
         completed = task.get('completed', None)
         username = usernames.get(user_id, None)
-        if user_id is not None and title is not None and completed is not None and username is not None:
-            task_info = {'username': username, 'task': title, 'completed': completed}
+        if user_id is not None and title is not None and completed is not \
+           None and username is not None:
+            task_info = {}
+            task_info['username'] = username
+            task_info['task'] = title
+            task_info['completed'] = completed
             tasks[user_id].append(task_info)
     with open('todo_all_employees.json', 'w+') as f:
         json.dump(tasks, f)
